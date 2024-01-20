@@ -1,6 +1,5 @@
 package com.example.calculatorapp.calculatorScreen.component
 
-import androidx.compose.runtime.Composable
 
 
 sealed class CalculatorAction {
@@ -20,7 +19,7 @@ sealed class CalculatorAction {
 }
 
 enum class CalculatorOperation(val symbol: String){
-    ADD(symbol = "+"),
+    ADD( "+"),
     SUBTRACT("-"),
     MULTIPLY("*"),
     DIVIDE("/")

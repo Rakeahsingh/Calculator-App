@@ -49,7 +49,7 @@ fun CalculatorScreen(
         ) {
 
             Text(
-                text = state.number1 + (state.operation ?: "") + state.number2,
+                text = state.number1 + (state.operation?.symbol ?: "") + state.number2,
                 fontSize = 80.sp,
                 fontWeight = FontWeight.Light,
                 textAlign = TextAlign.End,

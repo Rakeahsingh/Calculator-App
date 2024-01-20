@@ -94,6 +94,25 @@ class CalculatorViewModel: ViewModel() {
     private fun performCalculation(){
         val number1 = _state.value.number1.toDoubleOrNull()
         val number2 = _state.value.number2.toDoubleOrNull()
+
+        if (number1 != null && number2 != null){
+            val result = when(_state.value.operation){
+                CalculatorOperation.ADD -> number1 + number2
+                CalculatorOperation.SUBTRACT -> number1 - number2
+                CalculatorOperation.MULTIPLY -> number1 * number2
+                CalculatorOperation.DIVIDE -> number1 / number2
+                null -> return
+            }
+
+            _state.update {
+                it.copy(
+                    number1 = result.toString().take(15),
+                    number2 = "",
+                    operation = null
+                )
+            }
+        }
+
     }
 
    private fun enterOperation(operation: CalculatorOperation){
@@ -107,4 +126,5 @@ class CalculatorViewModel: ViewModel() {
     companion object{
        private const val MAX_LENGTH_VALUE = 8
     }
+
 }
