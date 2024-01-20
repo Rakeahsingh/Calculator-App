@@ -3,6 +3,7 @@ package com.example.calculatorapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -15,6 +16,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.calculatorapp.calculatorScreen.CalculatorScreen
 import com.example.calculatorapp.calculatorScreen.CalculatorViewModel
 import com.example.calculatorapp.ui.theme.CalculatorAppTheme
+import com.example.calculatorapp.ui.theme.MediumGray
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +36,11 @@ class MainActivity : ComponentActivity() {
                         state = state,
                         onAction = viewModel::onAction,
                         modifier = Modifier
-                            .padding(horizontal = 8.dp)
+                            .background(MediumGray)
+                            .padding(
+                                horizontal = 16.dp,
+                                vertical = 16.dp
+                            )
                     )
 
                 }

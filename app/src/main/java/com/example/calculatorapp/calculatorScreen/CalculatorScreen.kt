@@ -50,7 +50,9 @@ fun CalculatorScreen(
 
             Text(
                 text = state.number1 + (state.operation?.symbol ?: "") + state.number2,
-                fontSize = 80.sp,
+                fontSize = if (state.number1.length <= 5 && state.number2.length <= 1) 80.sp
+                           else if ((state.number1 + state.number2).length <= 10) 50.sp
+                           else 32.sp,
                 fontWeight = FontWeight.Light,
                 textAlign = TextAlign.End,
                 modifier = Modifier
